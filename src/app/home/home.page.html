@@ -1,0 +1,44 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>
+      TODO List Application
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset-sm='3' size-sm='6' size="12">
+        <form (submit)="onAdd()">
+          <input type="text" name='todoName' placeholder="todo adding.." [(ngModel)]='todoName'>
+          <input type="submit" value="ADD">
+        </form>
+        
+        <ion-item-divider>
+          <ion-label>Todo Lists</ion-label>
+        </ion-item-divider>
+        
+        <ion-list>
+          <ion-item-sliding *ngFor="let todo of todoList">
+            <ion-item>
+              <ion-label>{{todo}}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="danger" (click)="onRemove(todo)">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <small>Version: 1.0.0</small>
+    <small>&#169; All Right Resources</small>
+    <small>Harshit Saxena</small>
+  </ion-toolbar>
+</ion-footer>
